@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Cadastrar mensagem</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js38.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body onLoad="verificaGravacao()">
+    <form name="form1" action="js38-salvar-mensagem.html" method="get" onSubmit="return validarCampos()">
+        <p><label for="txtTitulo">Título:</label></p>
+        <p><input id="txtTitulo" name="txtTitulo" type="text" size="50" placeholder="Informe um título" autofocus></p>
+        <p><label for="txtAssunto">Assunto:</label></p>
+        <p><textarea id="txtAssunto" name="txtAssunto" cols="50"
+                placeholder="Descreva o assunto"></textarea></p>
+        <p><label for="selCategoria">Categoria:</label></p>
+        <p>
+            <select id="selCategoria" name="selCategoria">
+                <option value="">&nbsp;</option> <!-- espaço em branco -->
+                <option value="D">Dúvida</option>
+                <option value="S">Sugestão</option>
+                <option value="R">Reclamação</option>
+                <option value="O">Outros</option>
+            </select>
+        </p>
+        <p><label for="selCategoria">Enviar por e-mail:</label></p>
+        <p><input id="chkEmail" name="chkEmail" type="checkbox"></p>
+        <p id="txtMensagem"></p>
+        <p>
+            <button type="button" onclick="limparCampos()">Limpar</button>
+            <button type="button" onclick="history.back()">Voltar</button>
+            <button type="submit">Salvar</button>
+        </p>
+    </form>
+    <script type="text/javascript">
+        const verificaGravacao = () => {
+            if (sessionStorage.hasOwnProperty("resultado")) { // Verifica se houve tentativa de gravação
+                document.getElementById('txtMensagem').innerHTML = "<b>" + sessionStorage.getItem("resultado") + "<b>";
+                sessionStorage.removeItem("resultado"); // remove objeto do sessionStorage
+            }
+        }
+    </script>
+</body>
+
+</html>

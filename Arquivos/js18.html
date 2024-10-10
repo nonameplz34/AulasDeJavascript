@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Estrutura de repetição - break / continue</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Exibe os números ímpares até 11 e a soma deles
+        let numero = 0;
+        let soma = 0;
+        let resto;
+        do {
+            numero++;
+            resto = numero % 2;
+            if (resto == 0) { // verifica se é par
+                continue; // retorna ao do
+            }
+            alert(numero);
+            soma += numero;
+            if (numero>=11) {
+                break; // vai para depois do while
+            }
+        } while (true);
+        alert("A soma dos números é " + soma);
+    </script>
+</body>
+    
+</html>

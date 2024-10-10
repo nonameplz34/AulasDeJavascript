@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Conversão de tipos</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<script type="text/javascript">
+        let a = "10";
+        let b = 1;
+        let c = true;
+        // Conversão implícita
+        alert(a + b); // 101
+        alert(a - b); // 9
+        alert(a * b); // 10
+        alert(a / b); // 10
+        alert(b + c); // 2
+        // Conversão explícita
+        alert(Number(a) + b); // 11
+        alert(Number(c) + 1); // 2
+        c = String(b);
+        alert("O valor da variável c é " + c + " e seu tipo é " + typeof c); // 1 e string;
+        let d = Boolean(b);
+        alert("O valor da variável d é " + d + " e seu tipo é " + typeof d); // true e boolean;
+        let e = Number("xxx");
+        alert(e); // NaN
+	</script>
+</body>
+
+</html>

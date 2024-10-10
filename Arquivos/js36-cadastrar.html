@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Cadastramento de conta</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js36.js"></script>
+</head>
+
+<body>
+    <h1>Cadastramento de Conta</h1>
+    <p><label for="txtAgencia">Agência:</label><input id="txtAgencia" type="text" placeholder="Digite uma agência" autofocus></p>
+    <p><label for="txtNumero">Número:</label><input id="txtNumero" type="text" placeholder="Digite uma conta"></p>
+    <p id="txtMensagem"></p>
+    <p><button id="btnRetornar" type="button" onclick="history.back()">Retornar</button>
+        <button id="btnGravar" type="button" onclick="cadastrar()">Gravar</button>
+    </p>
+    <script type="text/javascript">
+        function cadastrar() {
+            let mensagem;
+            if (document.getElementById('txtAgencia').value == "") {
+                mensagem = "Preencha a agência";
+                document.getElementById('txtAgencia').focus();
+            } else if (isNaN(document.getElementById('txtAgencia').value)) {
+                mensagem = "Preencha um valor numérico para a agência";
+                document.getElementById('txtAgencia').focus();
+            } else if (document.getElementById('txtNumero').value == "") {
+                mensagem = "Preencha o número da conta";
+                document.getElementById('txtNumero').focus();
+            } else if (isNaN(document.getElementById('txtNumero').value)) {
+                mensagem = "Preencha um valor numérico para a conta";
+                document.getElementById('txtNumero').focus();
+            } else {
+                const conta1 = new Conta();
+                conta1.cadastrar(Number(document.getElementById('txtAgencia').value),
+                                Number(document.getElementById('txtAgencia').value));
+                mensagem = "Gravação realizada com sucesso!";
+            }
+            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`;
+        }
+    </script>
+</body>
+
+</html>

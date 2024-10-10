@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Objeto document</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        let tituloPagina, corPagina;
+        document.write("<b>Clique nos botões</b>");
+        function trocarCorFundoPagina () {
+            do {
+                corPagina = window.prompt("Informe verde ou branco:");
+                if (corPagina!=null)
+                    corPagina = corPagina.toUpperCase();
+            } while (corPagina!="VERDE" && corPagina!="BRANCO");
+            switch (corPagina) {
+                case "VERDE":
+                    window.document.body.style.backgroundColor="green";
+                    break;
+                case "BRANCO":
+                    window.document.body.style.backgroundColor="white";
+                    break;
+            }
+        }
+        function trocarTituloPagina () {
+            let tituloPagina = window.prompt("Informe vo novo título da página:");
+            if (tituloPagina!=null)
+                document.title = tituloPagina;
+        }
+        function exibirTexto() {
+            alert(document.getElementById('txtTexto').value);
+        }
+    </script>
+    <p><button id="btnTrocarTituloPagina" type="button" onclick="trocarTituloPagina()">Trocar título da página</button></p>
+    <p><button id="btnTrocarCorFundoPagina" type="button" onclick="trocarCorFundoPagina()">Trocar cor de fundo da página</button></p>
+    <p><input id="txtTexto" type="text" placeholder="Digite um texto" autofocus></p>
+    <p><button id="btnExibirTexto" type="button" onclick="exibirTexto()">Exibir texto</button></p>
+</body>
+
+</html>

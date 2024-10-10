@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Array</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        const procurarNome = (nome) => {
+            return (nome==nomeProcurado); // Condição a ser verificada
+        }
+        // Inserir nomes no array
+        let nomes = []; // Cria um array vazio
+        do {
+            let nome = prompt("Informe um nome:");
+            nomes.push(nome); // Adiciona nome ao array
+            resposta = confirm("Deseja adicionar mais nomes ?");
+        } while (resposta == true);
+        // Exibir os nomes cadastrados
+        for (let contador = 0; contador<=nomes.length-1; contador++) {
+            alert(contador + " - " + nomes.at(contador));
+        }
+        // Procuar por nome
+        let nomeProcurado = prompt("Informe um nome a ser pesquisado: ");
+        if (nomes.find(procurarNome)==nomeProcurado) { // Dará o mesmo resultado com a linha comentada abaixo
+        //if (nomes.indexOf(nomeProcurado)!=-1) {
+            alert("Nome foi encontrado!");
+        } else {
+            alert("Nome não foi encontrado!");
+        }
+    </script>
+</body>
+
+</html>

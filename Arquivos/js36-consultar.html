@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Consulta de conta</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js36.js"></script>
+</head>
+
+<body>
+    <h1>Consulta de Conta</h1>
+    <p><label for="txtAgencia">Agência:</label><input type="text" id="txtAgencia" readonly></p>
+    <p><label for="txtNumero">Número:</label><input type="text" id="txtNumero" readonly></p>
+    <p><label for="txtSaldo">Saldo:</label><input type="text" id="txtSaldo" readonly></p>
+    <p><button id="btnRetornar" type="button" onclick="history.back()" autofocus>Retornar</button></p>
+    <script type="text/javascript">
+        const conta1 = new Conta();
+        conta1.obterDados();
+        document.getElementById('txtAgencia').value = conta1.agencia;
+        document.getElementById('txtNumero').value = conta1.numeroConta;
+        document.getElementById('txtSaldo').value = conta1.saldo;
+    </script>
+</body>
+
+</html>

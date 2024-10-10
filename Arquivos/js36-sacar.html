@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Saque em conta</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js36.js"></script>
+</head>
+
+<body>
+    <h1>Sacar</h1>
+    <p><label for="txtValor">Valor a sacar:</label><input id="txtValor" type="text" autofocus></p>
+    <p id="txtMensagem"></p>
+    <p><button id="btnRetornar" type="button" onclick="history.back()">Retornar</button>
+       <button id="btnGravar" type="button" onclick="sacar()">Gravar</button></p>
+    <script type="text/javascript">
+        function sacar() {
+            let mensagem;
+            if (document.getElementById('txtValor').value=="") {
+                mensagem = "Preencha o valor a depositar";
+                document.getElementById('txtValor').focus();
+            } else if (isNaN(document.getElementById('txtValor').value)) {
+                mensagem = "Preencha um valor numérico";
+                document.getElementById('txtValor').focus();
+            } else {
+                const conta1 = new Conta();
+                if (conta1.sacar(Number(document.getElementById('txtValor').value)))
+                    mensagem = "Saque realizado com sucesso!";
+                else 
+                    mensagem =  "Saldo indisponível!";
+            }
+            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`;
+        }
+    </script>
+</body>
+
+</html>

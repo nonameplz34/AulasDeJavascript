@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Objetos literais</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        const LIMITE_ADULTO = 18;
+        const pessoa = {
+            nome: "João",
+            idade: 25,
+            salario: 1000,
+            imprimirDados: function() {
+                alert(`O nome da pessoa é ${this.nome}, salario ${this.salario} e tem ${this.idade} anos`);
+            },
+            reajustarSalario: function(percentualReajuste) {
+                this.salario = this.salario + (this.salario * percentualReajuste / 100);
+                return this.salario;
+            }
+        };
+        pessoa.nome = "Zezinho";
+        pessoa.imprimirDados();
+        let percentual;
+        do {
+            percentual = Number(prompt("Entre com o percentual de reajuste: "));
+        } while(percentual < 0 || percentual > 100)
+        pessoa.reajustarSalario(percentual);
+        alert("O novo salário é " + pessoa.salario);
+        alert("a variável pessoa é do tipo " + typeof pessoa);
+    </script>
+</body>
+
+</html>

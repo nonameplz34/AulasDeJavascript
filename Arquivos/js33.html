@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Objeto history</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <p id="txtHistoricoPaginas"></p>
+    <p><button id="btnVoltar" onClick="voltarPagina()">Voltar</button></p>
+    <script type="text/javascript">
+        function voltarPagina () {
+            history.back();
+        }
+        document.getElementById("txtHistoricoPaginas").innerText = "Páginas no histórico: "+history.length;
+    </script>
+</body>
+
+</html>

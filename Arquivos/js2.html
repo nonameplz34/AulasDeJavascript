@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Uso de variáveis</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/js2.js"></script>
+	<script type="text/javascript">
+		alert("O valor da variável a é " + a + " e seu tipo é " + typeof a);
+		var a = "Maria"; // Escopo global
+		var a = 10; // Redeclaração de variável no mesmo escopo
+		let b; // Escopo global
+		alert(b);
+		// const b; // Não aceita redeclaração de variável no mesmo escopo
+		const c = true; // Escopo global
+		// let c = false; // Não aceita redeclaração de variável no mesmo escopo
+	</script>
+</head>
+
+<body>
+	<button type="button" onclick="exibirValorA()">Exibir valor global da variável a</button><br>
+	<button type="button" onclick="alterarValorA()">Alterar valor da variável a</button><br>
+	<br>
+	<button type="button" onclick="exibirValorB()">Exibir valor global da variável b</button><br>
+	<button type="button" onclick="alterarValorB()">Alterar valor da variável b</button><br>
+	<br>
+	<button type="button" onclick="exibirValorC()">Exibir valor global da variável c</button><br>
+	<button type="button" onclick="alterarValorC()">Alterar valor da variável c</button><br>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Ler mensagens</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js38.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr><th>Título</th><th>Assunto</th><th>Categoria</th><th>Enviar e-mail</th></tr>
+        </thead>
+        <tbody id="tblBody"></tbody>
+    </table>
+    <p><button type="button" onclick="history.back()">Voltar</button></p>        
+    <script type="text/javascript">
+        let corpoTabela = document.getElementById("tblBody"); // para manipular o body
+        const mensagem = new Mensagem(); // Para acessar a classe Mensagem
+        let mensagens = new Array(); // Para armazenar no array as mensagens do localStorage
+        mensagens = mensagem.lerMensagens(); // Lê as mensagens do localStorage
+        mensagens.forEach(function (item) { // ler cada elemento do array e armazenar na variável item
+            let linhaTabela = corpoTabela.insertRow(); // cria linha na tabela
+            let celulaTitulo = linhaTabela.insertCell(); // cria célula na linha
+            celulaTitulo.innerText = item.titulo; // Insere titulo na célula
+            let celulaAssunto = linhaTabela.insertCell(); // cria célula na linha
+            celulaAssunto.innerText = item.assunto; // Insere assunto na célula
+            let celulaCategoria = linhaTabela.insertCell(); // cria célula na linha
+            switch (item.categoria) {
+                case "D":
+                    celulaCategoria.innerText = "Dúvida"; // Insere categoria na célula
+                    break;
+                case "S":
+                    celulaCategoria.innerText = "Sugestão"; // Insere categoria na célula
+                    break;
+                case "R":
+                    celulaCategoria.innerText = "Reclamação"; // Insere categoria na célula
+                    break;
+                case "O":
+                    celulaCategoria.innerText = "Outros"; // Insere categoria na célula
+                    break;
+            }
+            let celulaEmail = linhaTabela.insertCell(); // cria célula na linha
+            if (item.email)
+                celulaEmail.innerText = "Sim"; // Insere email na célula
+            else
+                celulaEmail.innerText = "Não"; // Insere email na célula
+        });
+    </script>
+</body>
+
+</html>

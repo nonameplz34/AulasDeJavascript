@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Estrutura de repetição - for</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        for (let x=1; x<=3; x++) { 
+            alert("O valor da variável x é " + x); // escopo de bloco
+        }
+        // alert("Valor final de x é " + x); // a variável x não existe no escopo global
+        let y; // escopo global
+        for (let y=3; y>=1; y--) {
+            alert("O valor da variável y é " + y); // escopo de bloco
+        }
+        alert("Valor final de y é " + y); // undefined - escopo global
+        var z; // escopo global
+        for (var z=3; z>=1; z--) {
+            alert("O valor da variável z é " + z); // escopo global
+        }
+        alert("Valor final de z é " + z); // 0 - escopo global
+    </script>
+</body>
+
+</html>

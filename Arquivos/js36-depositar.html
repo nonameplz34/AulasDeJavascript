@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Depósito em conta</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js36.js"></script>
+</head>
+
+<body>
+    <h1>Depositar</h1>
+    <p><label for="txtValor">Valor a depositar:</label><input id="txtValor" type="text" autofocus></p>
+    <p id="txtMensagem"></p>
+    <p><button id="btnRetornar" type="button" onclick="history.back()">Retornar</button>
+       <button id="btnGravar" type="button" onclick="depositar()">Gravar</button></p>
+    <script type="text/javascript">
+        function depositar() {
+            let mensagem;
+            if (document.getElementById('txtValor').value=="") {
+                mensagem = "Preencha o valor a depositar";
+                document.getElementById('txtValor').focus();
+            } else if (isNaN(document.getElementById('txtValor').value)) {
+                mensagem = "Preencha um valor numérico";
+                document.getElementById('txtValor').focus();
+            } else {
+                const conta1 = new Conta();
+                conta1.depositar(Number(document.getElementById('txtValor').value))
+                mensagem = "Depósito realizado com sucesso!";
+            }
+            document.getElementById("txtMensagem").innerHTML = `<b>${mensagem}</b>`;
+        }
+    </script>
+</body>
+
+</html>

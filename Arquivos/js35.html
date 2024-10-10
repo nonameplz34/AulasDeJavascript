@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Objeto location</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Informações da página</h1>
+    <p id="txtHistoricoPaginas"></p>
+    <p id="txtURL"></p>
+    <p id="txtProtocolo"></p>
+    <p id="txtDominio"></p>
+    <p id="txtCaminho"></p>
+    <script type="text/javascript">
+        document.getElementById("txtHistoricoPaginas").innerText = "Páginas no histórico: "+history.length;
+        document.getElementById("txtURL").innerHTML = "<b>URL: "+location.href+"</b>";
+        document.getElementById("txtProtocolo").innerHTML = "<b>Protocolo: "+location.protocol+"</b>";
+        document.getElementById("txtDominio").innerHTML = "<b>Domínio: "+location.hostname+"</b>";
+        document.getElementById("txtCaminho").innerHTML = "<b>Caminho e nome do arquivo: "+location.pathname+"</b>";
+    </script>
+    <p><label for="txtTexto">Informe um texto:</label><input id="txtTexto" type="text" placeholder="Digite um texto" autofocus></p>
+    <p><button id="btnRecarregarPagina" type="button" onclick="location.reload()">Recarregar a página</button></p>
+    <p><button id="btnSubstituirPagina" type="button" onclick="location.replace('js33.html')">Substituir a página</button></p>
+    <p><button id="btnCarregarPagina" type="button" onclick="location.assign('js33.html')">Carregar nova página</button></p>
+</body>
+
+</html>

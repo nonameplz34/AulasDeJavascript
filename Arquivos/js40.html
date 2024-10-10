@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>AJAX</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <form name="form1">
+        <p><label>Código: </label><input type="number" id="codigo" name="codigo"
+                onchange="buscarCarro(document.form1.codigo.value)" autofocus></p>
+        <p><label>Descrição: </label><input type="text" id="descricao" name="descricao"></p>
+        <p><button type="reset" id="btnLimpar">Limpar</button></p>
+        <script type="text/javascript">
+            buscarCarro = (codigo) => {
+                if (document.form1.codigo.value != "") { // Só procurar se código preenchido
+                    const url = "https://parallelum.com.br/fipe/api/v1/carros/marcas";
+                    const opcoes = {
+                        method: "GET",
+                        headers: { "Content-Type": "application/json;charset=UTF-8" }
+
+                    };
+                    fetch(url, opcoes) // Funciona sem as opções
+                        .then(resposta => {
+                            return resposta.json();
+                        })
+                        .then(dados => {
+                            let carroEncontrado = false;
+                            if (dados != null) {
+                                for (var x = 0; x < dados.length; x++) { // Percorre cada item da lista de objetos
+                                    if (dados[x].codigo === document.form1.codigo.value) { // Verifica cada item do lista
+                                        preencherCampos(dados[x]); // Envia o item inteiro da lista se encontrar o código
+                                        carroEncontrado = true;
+                                        break; // Sai do loop porque já encontrou o código
+                                    }
+                                }
+                            }
+                            if (!carroEncontrado) {
+                                document.form1.descricao.value = ""; // Limpa descrição
+                                alert("Código não encontrado!");
+                            }
+                        })
+                        .catch(erro => {
+                            alert("Erro na pesquisa do carro: " + erro);
+                        })
+                        .finally(console.log("Terminou a consulta")
+                        );
+                }
+            }
+            preencherCampos = (carro) => {
+                document.form1.descricao.value = carro.nome;
+            }
+        </script>
+    </form>
+
+</body>
+
+</html>

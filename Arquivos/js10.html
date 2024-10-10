@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+        <title>Uso do If / Else</title>
+        <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        const LIMITE_ADULTO = 18; // escopo global
+        const LIMITE_VOTAR = 16; // escopo global
+        let nome = prompt("Informe o seu nome:"); // escopo glocal
+        let idade = Number(prompt("Informe a sua idade:")); // escopo global
+        let anosFaltando = 0; // escopo global;
+        if (idade>=LIMITE_ADULTO)
+            alert(`${nome} você é um(a) adulto(a)`);
+        else
+            alert(`${nome} você ainda não é um(a) adulto(a)`);
+        if (idade>=LIMITE_VOTAR) {
+            alert("Você já pode votar.");
+            alert("Parabéns!");
+        } else {
+            alert("Você ainda não pode votar.");
+            let anosFaltando = LIMITE_VOTAR - idade; // escopo de bloco - redeclaração em outro escopo
+            alert(`Ainda faltam ${anosFaltando} anos.`);
+        }
+        alert(anosFaltando); // 0 - escopo global
+    </script>
+</body>
+
+</html>

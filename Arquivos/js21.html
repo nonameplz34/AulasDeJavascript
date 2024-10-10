@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Função</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        let resposta;        
+        do {
+            let numero = Number(prompt("Informe um número inteiro entre 0 e 200:"));
+            if (numero < 0 || numero > 200 || numero!=parseInt(String(numero), 10)) {
+                alert("Entrada inválida!");
+            } else {
+                let fatorial = calcularFatorial(numero);
+                alert("O fatorial de " + numero + " é " + fatorial);
+            }
+            resposta = confirm("Deseja continuar ?");
+        } while (resposta == true);
+        function calcularFatorial(valor) {
+            let fatorial;
+            if (valor >= 0) {
+                switch (valor) {
+                    case 0:
+                        fatorial = 1;
+                        break;
+                    case 1:
+                        fatorial = 1;
+                        break;
+                    default:
+                        fatorial = valor * calcularFatorial(valor - 1);
+                        break;
+                }
+            }
+            return fatorial;
+        }
+    </script>
+</body>
+
+</html>

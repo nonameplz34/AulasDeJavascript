@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Salvar Mensagem</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js38.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script type="text/javascript">
+        let mensagens = new Array(); {
+            const mensagem = new Mensagem(); // Cria o objeto mensagem
+            mensagens = mensagem.lerMensagens(); // Lê as mensagens do localStorage
+        }
+        if (mensagens.length == 5) { // Verifica se o limite de mensagens foi atingido
+            sessionStorage.setItem("resultado", "Limite de mensagens atingido!");
+        } else {
+            const parametros = new URL(location.href).searchParams; // Busca os parâmetros da URL
+            const titulo = parametros.get('txtTitulo'); // Busca o parâmetro txtTitulo
+            const assunto = parametros.get('txtAssunto'); // Busca o parâmetro txtAssunto
+            const categoria = parametros.get('selCategoria'); // Busca o parâmetro selCategoria
+            const email = parametros.get('chkEmail'); // Busca o parâmetro chkEmail
+            const mensagem = new Mensagem(titulo, assunto, categoria, email); // Cria objeto mensagem
+            mensagem.salvarMensagem(mensagem); // Salva mensagem no localStorage
+            sessionStorage.setItem("resultado", "Gravação realizada com sucesso!");
+        }
+        history.back();
+    </script>
+</body>
+
+</html>

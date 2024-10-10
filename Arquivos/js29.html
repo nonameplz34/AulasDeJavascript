@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Objeto window</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="text/javascript">
+        let pagina;
+        function abrirPagina () {
+            let urlPagina = window.prompt("Informe o endereço de uma página:", "http://");
+            if (urlPagina!=null)
+                pagina = window.open(urlPagina);
+        }
+        function fecharPagina () {
+            let resposta = window.confirm("Deseja fechar a página aberta?");
+            if (resposta)
+                pagina.close();
+        }
+        function imprimirPaginaAtual () {
+            window.print();
+        }
+    </script>
+    <p><button type="button" onclick="abrirPagina()">Abrir página</button></p>
+    <p><button type="button" onclick="fecharPagina()">Fechar página</button></p>
+    <p><button type="button" onclick="imprimirPaginaAtual()">Imprimir página atual</button></p>
+</body>
+
+</html>
