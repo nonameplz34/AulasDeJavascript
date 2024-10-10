@@ -25,6 +25,18 @@
             }
             return fatorial;
         }
+
+        const imprimirMensagem = (mensagem) => alert(mensagem);
+
+        // mesma coisa do arrowfunction
+        // não colocar const depois do imprimirMensagem("fim do programa")
+        // function  imprimirMensagem(mensagem) {
+        //     (mensagem)
+        // }
+
+
+
+
         let resposta;
         do {
             let numero = Number(prompt("Informe um número inteiro entre 0 e 200:"));
@@ -36,6 +48,9 @@
             }
             resposta = confirm("Deseja continuar ?");
         } while (resposta == true);
+
+        // #sendo declarado aqui em baixo
+        imprimirMensagem("fim do programa")
     </script>
 </body>
 
